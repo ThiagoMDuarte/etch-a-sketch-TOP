@@ -1,0 +1,13 @@
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin: 30px;
+    border: solid 1px rgb(0, 0, 0);
+}
+.colunaDiv, .linhaDiv{
+    width: 25px
+}
