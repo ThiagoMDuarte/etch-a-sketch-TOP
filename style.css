@@ -20,4 +20,9 @@ body {
     border: 1px solid rgb(149, 149, 149);
     height: 20px;
     width: 20px;
+    background-color: red;
+}
+
+#blackId {
+    background-color: black;
 }
