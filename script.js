@@ -1,21 +1,33 @@
 const container = document.querySelector('.container');
 
-let totalDivs = 16;
-createDivs(totalDivs)
+let totalGrid = 16;
 
-function createDivs (totalDivs) {
+createGrid(totalGrid)
 
-for (let i = 0; i < totalDivs; i++) {
-    let colunaDiv = document.createElement('div');
-    colunaDiv.classList.add('colunaDiv');
-    colunaDiv.textContent = `${i + 1}`;
-    container.appendChild(colunaDiv);
+function createGrid(totalGrid) {
+    let totalCells = (totalGrid * totalGrid)
 
-    for (let j = 0; j < totalDivs; j++) {
-        let linhaDiv = document.createElement('div');
-        linhaDiv.classList.add('linhaDiv');
-        linhaDiv.textContent = `${j + 1}`;
-        colunaDiv.appendChild(linhaDiv);
-    }
-}}
+    for (let i = 0; i < totalCells; i++) {
+        let gridDiv = document.createElement('div');
+        let containerHeight = container.clientHeight / totalGrid
+        gridDiv.classList.add('gridDiv');
+        // AS DUAS LINHAS MAIS IMPORTANTES
+        // SEM ESSAS DUAS LINHAS (.flexBasis e .height) O GRID FICA COM ESPAÇOS OU ATRAVESSA O CONTAINER
+        gridDiv.style.flexBasis = `${100/totalGrid}%`
+        gridDiv.style.height = `${containerHeight}px`
+        container.appendChild(gridDiv);
+    }}
 
+
+/* 
+const changeDivs = document.querySelector('.gridDiv')
+changeDivs.addEventListener('mouseover',mudarCor)
+
+function mudarCor(e) {
+    changeDivs.style.backgroundColor = "rgb("+e.offsetX+","
+    +e.offsetY+","
+    +((e.offsetX/e.offsetY)*10)+")";
+}
+// selecionar todas as divs
+// adicionar um evento de mousehover para cada div
+// acionar o evento mudar a cor */
