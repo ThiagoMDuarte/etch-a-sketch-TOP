@@ -22,10 +22,12 @@ function createGrid(totalGrid) {
 
 
 const changeGrid = document.querySelectorAll('.gridDiv')
+mouseEvent(changeGrid)
 
-changeGrid.forEach(grid => {
-    grid.addEventListener('mouseover', function (event){
-        grid.setAttribute('id','blackId')
-
-    })
-})
+function mouseEvent(gridDivs) {
+    gridDivs.forEach(grid => {
+        grid.addEventListener('mouseover', function (event) {
+          grid.setAttribute('id', 'blackId');
+        });
+      });
+    }
