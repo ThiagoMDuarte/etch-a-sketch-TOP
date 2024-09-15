@@ -27,7 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    background-color: rgba(59, 62, 99, 0.845);
+    background-color: rgba(60, 60, 100, 0.845);
 }
 .botoes {
     display: flex;

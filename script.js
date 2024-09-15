@@ -4,8 +4,6 @@ let totalGrid = 8;
 createGrid(totalGrid)
 
 const changeGrid = document.querySelectorAll('.gridDiv')
-//mudarCor(changeGrid)
-
 
 const botaoPreto = botoes.querySelector('#preto')
 botaoPreto.addEventListener('click', function () {
@@ -25,6 +23,16 @@ botaoAzul.addEventListener('click',function () {
     mudarCor(changeGrid,cor)
 })
 
+const botaoLimpar = botoes.querySelector('#limpar')
+botaoLimpar.addEventListener('click',function(){
+    //SELECIONAR TODAS AS DIV COM ID = newColorId
+    let teste = desenho.querySelectorAll('#newColorId')
+    teste.forEach(newColorId => {
+        newColorId.setAttribute('id','noColor')
+        newColorId.style.backgroundColor = 'rgba(' + [60,60,100, 0.845].join(',') + ')';
+    })
+})
+
 function createGrid(totalGrid) {
     let totalCells = (totalGrid * totalGrid)
 
@@ -36,6 +44,7 @@ function createGrid(totalGrid) {
         // SEM ESSAS DUAS LINHAS (.flexBasis e .height) O GRID FICA COM ESPAÇOS OU ATRAVESSA O COINTERDER DELE
         gridDiv.style.flexBasis = `${100/totalGrid}%`
         gridDiv.style.height = `${desenhoHeight}px`
+        gridDiv.setAttribute('id', 'noColor');
         desenho.appendChild(gridDiv);
     }}
 
