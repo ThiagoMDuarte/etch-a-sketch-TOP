@@ -1,37 +1,48 @@
 const desenho = document.querySelector('.desenho');
 const botoes = document.querySelector('.botoes')
-let totalGrid = 8;
-createGrid(totalGrid)
 
-const changeGrid = document.querySelectorAll('.gridDiv')
+createGrid(16)
 
-const botaoPreto = botoes.querySelector('#preto')
-botaoPreto.addEventListener('click', function () {
-    let cor = 'preto'
-    mudarCor(changeGrid,cor)
+let slider = botoes.querySelector('.slider')
+slider.addEventListener("input",event => {
+    let tamanho = event.target.value
+    desenho.innerHTML = ''; // DELETA O GRID ATUAL
+    createGrid(tamanho);
+    atualizarGridDivs();
 })
 
-const botaoVermelho = botoes.querySelector('#vermelho')
-botaoVermelho.addEventListener('click',function () {
-    let cor = 'vermelho'
-    mudarCor(changeGrid,cor)
-})
+function atualizarGridDivs () {
+    const changeGrid = document.querySelectorAll('.gridDiv')
 
-const botaoAzul = botoes.querySelector('#azul')
-botaoAzul.addEventListener('click',function () {
-    let cor = 'azul'
-    mudarCor(changeGrid,cor)
-})
 
-const botaoLimpar = botoes.querySelector('#limpar')
-botaoLimpar.addEventListener('click',function(){
-    //SELECIONAR TODAS AS DIV COM ID = newColorId
-    let teste = desenho.querySelectorAll('#newColorId')
-    teste.forEach(newColorId => {
-        newColorId.setAttribute('id','noColor')
-        newColorId.style.backgroundColor = 'rgba(' + [60,60,100, 0.845].join(',') + ')';
+    const botaoPreto = botoes.querySelector('#preto')
+    botaoPreto.addEventListener('click', function () {
+        let cor = 'preto'
+        mudarCor(changeGrid,cor)
     })
+
+    const botaoVermelho = botoes.querySelector('#vermelho')
+    botaoVermelho.addEventListener('click',function () {
+        let cor = 'vermelho'
+        mudarCor(changeGrid,cor)
+    })
+
+    const botaoAzul = botoes.querySelector('#azul')
+    botaoAzul.addEventListener('click',function () {
+        let cor = 'azul'
+        mudarCor(changeGrid,cor)
+    })
+
+    const botaoLimpar = botoes.querySelector('#limpar')
+    botaoLimpar.addEventListener('click',function(){
+        //SELECIONAR TODAS AS DIV COM ID = newColorId
+        let limpar = desenho.querySelectorAll('#newColorId')
+        limpar.forEach(newColorId => {
+            newColorId.setAttribute('id','noColor')
+            newColorId.style.backgroundColor = 'rgba(' + [60,60,100, 0.845].join(',') + ')';
+        })
 })
+}
 
 function createGrid(totalGrid) {
     let totalCells = (totalGrid * totalGrid)
@@ -68,3 +79,5 @@ function getOpacity(){
     length = ((length / 10) + 0.1)
     return length
     }
+
+atualizarGridDivs()
