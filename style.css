@@ -7,12 +7,12 @@ body {
     display: flex;
     justify-content: center;
     margin: 25px;
+    background-color: #000644d6
 }
 .desenho {
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    border: solid red 1px;
     width: 500px;
     height: 500px;
   }
@@ -20,7 +20,6 @@ body {
     border: 1px solid rgb(149, 149, 149);
     height: 20px;
     width: 20px;
-    background-color: rgb(169, 169, 169);
 }
 
 .container {
@@ -28,7 +27,7 @@ body {
     justify-content: center;
     align-items: center;
     align-content: center;
-    border: black solid 1px;
+    background-color: rgba(59, 62, 99, 0.845);
 }
 .botoes {
     display: flex;
@@ -58,3 +57,14 @@ button {
     background-color: red;
     color: white;
 }
+#limoar {
+    background-color: gray;
+    color: white;
+}
+
+.slider {
+    margin-bottom: 50px;
+    width: 150px;
+}
+
+  
