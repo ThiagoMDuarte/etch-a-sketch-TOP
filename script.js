@@ -1,10 +1,29 @@
 const desenho = document.querySelector('.desenho');
-
+const botoes = document.querySelector('.botoes')
 let totalGrid = 8;
 createGrid(totalGrid)
 
 const changeGrid = document.querySelectorAll('.gridDiv')
-mudarCor(changeGrid)
+//mudarCor(changeGrid)
+
+
+const botaoPreto = botoes.querySelector('#preto')
+botaoPreto.addEventListener('click', function () {
+    let cor = 'preto'
+    mudarCor(changeGrid,cor)
+})
+
+const botaoVermelho = botoes.querySelector('#vermelho')
+botaoVermelho.addEventListener('click',function () {
+    let cor = 'vermelho'
+    mudarCor(changeGrid,cor)
+})
+
+const botaoAzul = botoes.querySelector('#azul')
+botaoAzul.addEventListener('click',function () {
+    let cor = 'azul'
+    mudarCor(changeGrid,cor)
+})
 
 function createGrid(totalGrid) {
     let totalCells = (totalGrid * totalGrid)
